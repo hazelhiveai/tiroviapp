@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tirovi — Privacy Policy</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg:           #0D1117;
+    --yellow:       #FADC3C;
+    --text:         #F5F0E8;
+    --text-muted:   rgba(245, 240, 232, 0.62);
+    --text-dim:     rgba(245, 240, 232, 0.42);
+    --field-border: rgba(245, 240, 232, 0.12);
+    --field-bg:     rgba(245, 240, 232, 0.032);
+    --separator:    rgba(245, 240, 232, 0.09);
+    --warn-border:  rgba(250, 220, 60, 0.22);
+    --warn-bg:      rgba(250, 220, 60, 0.045);
+  }
+
+  html, body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  body {
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Ambient glow — atmosphere, never exceeding 0.09 opacity, per brand rule */
+  .glow-top {
+    position: absolute;
+    top: -220px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 780px;
+    height: 780px;
+    background: radial-gradient(ellipse at center,
+      rgba(250, 220, 60, 0.09) 0%,
+      rgba(250, 220, 60, 0.04) 38%,
+      rgba(250, 220, 60, 0.012) 62%,
+      transparent 75%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .grain {
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+    background-size: 180px 180px;
+    opacity: 0.022;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 56px 24px 80px;
+  }
+
+  .wordmark {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--yellow);
+    margin-bottom: 64px;
+    opacity: 0;
+    animation: fadeUp 700ms cubic-bezier(0.22, 1, 0.36, 1) 50ms forwards;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 34px;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 800ms cubic-bezier(0.22, 1, 0.36, 1) 180ms forwards;
+  }
+
+  .intro {
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--text-muted);
+    max-width: 52ch;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 800ms cubic-bezier(0.22, 1, 0.36, 1) 260ms forwards;
+  }
+
+  section {
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 850ms cubic-bezier(0.22, 1, 0.36, 1) 340ms forwards;
+  }
+
+  section + section { animation-delay: 420ms; }
+  section + section + section { animation-delay: 500ms; }
+
+  h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+
+  ul.plain {
+    list-style: none;
+  }
+
+  ul.plain li {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.6;
+    color: var(--text-muted);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--separator);
+  }
+
+  ul.plain li:first-child { border-top: 1px solid var(--separator); }
+
+  .dash {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--yellow);
+    opacity: 0.55;
+    margin-right: 10px;
+  }
+
+  .notice {
+    border: 1px solid var(--warn-border);
+    background: var(--warn-bg);
+    border-radius: 10px;
+    padding: 18px 20px;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--text-muted);
+  }
+
+  .notice strong {
+    color: var(--text);
+    font-weight: 500;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 8px;
+    opacity: 0;
+    animation: fadeUp 850ms cubic-bezier(0.22, 1, 0.36, 1) 580ms forwards;
+  }
+
+  label {
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--text-dim);
+    margin-bottom: 6px;
+    display: block;
+  }
+
+  input, textarea {
+    width: 100%;
+    background: var(--field-bg);
+    border: 1px solid var(--field-border);
+    border-radius: 10px;
+    padding: 13px 14px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s ease;
+  }
+
+  input::placeholder, textarea::placeholder { color: rgba(245, 240, 232, 0.28); }
+  input:focus, textarea:focus { border-color: rgba(250, 220, 60, 0.4); }
+
+  textarea { min-height: 90px; resize: vertical; }
+
+  .field { margin-bottom: 2px; }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    background: var(--yellow);
+    color: #14140c;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    padding: 15px 22px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+  }
+
+  .cta:hover { opacity: 0.88; }
+
+  .fallback {
+    margin-top: 20px;
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  .fallback a {
+    color: var(--yellow);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(250, 220, 60, 0.3);
+  }
+
+  footer {
+    margin-top: 64px;
+    padding-top: 24px;
+    border-top: 1px solid var(--separator);
+    font-size: 12px;
+    font-weight: 300;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (max-width: 480px) {
+    h1 { font-size: 28px; }
+    .wrap { padding: 40px 20px 60px; }
+  }
+
+  section p { font-weight: 300; font-size: 15px; line-height: 1.75; color: var(--text-muted); margin-bottom: 14px; }
+  section p strong { color: var(--text); font-weight: 500; }
+  section a { color: var(--yellow); text-decoration: none; border-bottom: 1px solid rgba(250,220,60,0.35); }
+  .updated { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-dim); margin: -8px 0 28px; }
+</style>
+</head>
+<body>
+
+<div class="glow-top"></div>
+<div class="grain"></div>
+
+<div class="wrap">
+
+  <div class="wordmark">Tirovi</div>
+
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated 21 September 2026</p>
+
+  <p class="intro">
+    Tirovi is made by Hazel Hive AI Private Limited. This page explains what the app stores, why, and what you can do about it. It is written to be read, not skimmed past.
+  </p>
+
+  <section>
+    <h2>The short version</h2>
+    <p>Tirovi holds your identity statement, your "why", and your journal. That is private writing, and we treat it that way. Your entries are encrypted and stored securely. We never sell your data, to anyone, ever. No one on our team looks at what you've written unless you ask us to, for something like a support request. You're always in control — export anything, or delete a single entry or your whole account, whenever you want.</p>
+  </section>
+
+  <section>
+    <h2>What we store</h2>
+    <p><strong>Your account.</strong> When you sign in with Google or Apple, we receive your name, email address and, if your provider offers it, a profile picture. We use these to keep your account yours and to show your name in the app. We do not receive your password.</p>
+    <p><strong>What you write.</strong> Your identity statement, your "why", your journal entries (including the morning and evening rituals and daily reflections), the note you can leave when you change your statement, and the earlier versions of your statement. All of it is yours; we keep it so it is there when you come back, on any device you sign in on.</p>
+    <p><strong>What we do not keep.</strong> Release Prompt — the place you write something down to let it go — keeps nothing. What you type there is never saved, never sent anywhere, and is gone when the screen closes. This is a promise, not a setting.</p>
+    <p><strong>Your preferences.</strong> Reminder times, whether the app lock is on, your time zone (so reminders arrive at the right hour), the path and tone you have chosen.</p>
+    <p><strong>Your subscription.</strong> Whether you are on a trial, subscribed, or on the free plan, and which plan. Payment itself is handled by Google Play or the App Store; we never see your card or bank details.</p>
+  </section>
+
+  <section>
+    <h2>Where it lives</h2>
+    <p>Your data is stored with our hosting provider, Supabase, in their Mumbai (India) region. It is encrypted at rest, and every request is checked so that only your account can read your rows.</p>
+    <p>What you write also lives on your own phone, so the app works offline. If you turn on the app lock, opening Tirovi needs your fingerprint, face or device passcode.</p>
+  </section>
+
+  <section>
+    <h2>What we measure</h2>
+    <p>We record that things happen, never what you wrote. For example: that a journal entry was saved, that a ritual was completed, that a paywall was seen. These events go to PostHog, an analytics service, and are tied to your account id so we can understand how the app is used over time. Crash reports go to Sentry so we can fix problems; before anything is sent, your writing is stripped out.</p>
+    <p>We do not show ads, and we do not use advertising trackers.</p>
+  </section>
+
+  <section>
+    <h2>Who else sees anything</h2>
+    <p>Only the services that make the app work, and only what each needs:</p>
+    <ul class="plain">
+      <li><span class="dash">—</span><strong>Supabase</strong> — hosting and storage, as above</li>
+      <li><span class="dash">—</span><strong>Google</strong> and <strong>Apple</strong> — sign-in, and payments if you subscribe</li>
+      <li><span class="dash">—</span><strong>RevenueCat</strong> — keeps track of your subscription status across devices. It receives your account id and purchase status, never your writing</li>
+      <li><span class="dash">—</span><strong>PostHog</strong> and <strong>Sentry</strong> — usage events and crash reports, with your writing removed</li>
+    </ul>
+    <p>None of them are permitted to use your data for their own purposes. We do not sell or rent personal data, and we do not share your writing with anyone.</p>
+  </section>
+
+  <section>
+    <h2>Reminders and the widget</h2>
+    <p>Reminders are scheduled on your phone; nothing is sent from a server to make them appear. The home-screen widget shows only Tirovi's own words — never your statement or an entry — and there is no setting that changes that.</p>
+  </section>
+
+  <section>
+    <h2>What you can do</h2>
+    <ul class="plain">
+      <li><span class="dash">—</span><strong>Export.</strong> From the Journal, export everything you have written as text or Markdown at any time. Subscribers can also export a PDF.</li>
+      <li><span class="dash">—</span><strong>Delete an entry.</strong> Open it and choose <em>Delete this entry</em>. It is removed from your journal, your history and your exports.</li>
+      <li><span class="dash">—</span><strong>Delete your account.</strong> In the app: Profile → <em>Your data</em> → <em>Delete my account</em>. On the web: <a href="https://tirovi.com/delete-account/">tirovi.com/delete-account</a>. Either way, your account and everything in it is removed from our systems, including earlier versions of your statement and entries you had already deleted. This cannot be undone.</li>
+      <li><span class="dash">—</span><strong>Withdraw consent.</strong> Deleting your account withdraws your consent to everything above. Turning off reminders or the app lock withdraws it for those features.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>How long we keep it</h2>
+    <p>For as long as you have an account. When you delete your account, your writing, your preferences and your profile are deleted with it. Purchase and subscription records are kept for a limited period as required for accounting, tax and fraud prevention, then removed. Usage events and crash reports already recorded contain none of your writing and expire on those services' normal schedules. Backups held by our hosting provider expire on their normal schedule, after which nothing remains.</p>
+  </section>
+
+  <section>
+    <h2>Children</h2>
+    <p>Tirovi is for adults. It is not directed at anyone under 18, and we do not knowingly hold data about anyone under 18. If you believe we do, write to us and we will delete it.</p>
+  </section>
+
+  <section>
+    <h2>Your rights under Indian law</h2>
+    <p>Under the Digital Personal Data Protection Act, 2023, Hazel Hive AI Private Limited is the data fiduciary for Tirovi. You have the right to know what we hold, to correct it, to have it erased, to withdraw consent, and to raise a grievance. Everything on this page is the mechanism for those rights, and the address below is the one to write to. If you are not satisfied with our response, you may approach the Data Protection Board of India.</p>
+  </section>
+
+  <section>
+    <h2>Changes</h2>
+    <p>If this policy changes in a way that matters, we will say so in the app before the change applies. Small clarifications will simply update the date at the top.</p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>Questions, requests, or a grievance: <a href="mailto:support@hazelhiveai.com">support@hazelhiveai.com</a>. We aim to reply within seven days.</p>
+  </section>
+
+  <footer>
+    Tirovi — Every day, a little more you.<br />
+    This page is publicly accessible and does not require you to sign in.
+  </footer>
+
+</div>
+
+</body>
+</html>
